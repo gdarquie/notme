@@ -11,15 +11,17 @@ DAY_NUMBER=$(date +%d)
 COMPLETE_FILE_PATH=$NOT_PATH/$YEAR/$MONTH/$WEEK_NUMBER/$DAY_NUMBER.md
 
 # CREATE FOLDER(S) & FILE
-mkdir -p "$YEAR/$MONTH/$WEEK_NUMBER"
-touch $COMPLETE_FILE_PATH
+if [[ ! -f "$COMPLETE_FILE_PATH" ]]; then
 
-# ADD CONTENT
-TODAY=$(date -d $YEAR"-"$MONTH"-"$DAY_NUMBER +"%A %d %B %Y" | sed 's/^./\U&/')
-UUID=$(uuidgen)
-CURRENT_TIME=$(date +"%H:%M")
+  mkdir -p "$YEAR/$MONTH/$WEEK_NUMBER"
+  touch $COMPLETE_FILE_PATH
 
-cat <<EOT > $COMPLETE_FILE_PATH
+  # ADD CONTENT
+  TODAY=$(date -d $YEAR"-"$MONTH"-"$DAY_NUMBER +"%A %d %B %Y" | sed 's/^./\U&/')
+  UUID=$(uuidgen)
+  CURRENT_TIME=$(date +"%H:%M")
+
+  cat <<EOT > $COMPLETE_FILE_PATH
 # $TODAY
 
 Créé à $CURRENT_TIME. Uuid: $UUID
@@ -31,4 +33,6 @@ Créé à $CURRENT_TIME. Uuid: $UUID
 
 EOT
 
-echo "not has been created."
+  echo "not has been created."
+
+fi
