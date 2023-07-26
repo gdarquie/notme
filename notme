@@ -5,5 +5,5 @@ echo "Welcome to Not Me CLI!"
 read -p "What command would you like to run? " command
 
 if [[ $command == "create-not" ]]; then
-  echo "You've just created a new not."
+  source commands/create-not
 fi

@@ -31,3 +31,4 @@ Créé à $CURRENT_TIME. Uuid: $UUID
 
 EOT
 
+echo "not has been created."
