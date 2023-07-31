@@ -1,19 +1,20 @@
 #!/bin/bash
 
 # COMPOSE FILE NAME AND PATH
-NOT_PATH=`pwd`
+NOT_PATH=/home/betagouv/not
 YEAR=$(date +%Y)
 MONTH=$(date +%m)
 TODAY_WEEK=$(date +%W)
 START_OF_MONTH_WEEK=$(date -d $YEAR"-"$MONTH"-01" +%W)
 WEEK_NUMBER=$[TODAY_WEEK - START_OF_MONTH_WEEK + 1]
 DAY_NUMBER=$(date +%d)
-COMPLETE_FILE_PATH=$NOT_PATH/$YEAR/$MONTH/$WEEK_NUMBER/$DAY_NUMBER.md
+COMPLETE_FOLDER_PATH=$NOT_PATH/$YEAR/$MONTH/$WEEK_NUMBER
+COMPLETE_FILE_PATH=$COMPLETE_FOLDER_PATH/$DAY_NUMBER.md
 
 # CREATE FOLDER(S) & FILE
 if [[ ! -f "$COMPLETE_FILE_PATH" ]]; then
 
-  mkdir -p "$YEAR/$MONTH/$WEEK_NUMBER"
+  mkdir -p $COMPLETE_FOLDER_PATH
   touch $COMPLETE_FILE_PATH
 
   # ADD CONTENT
@@ -34,5 +35,6 @@ Créé à $CURRENT_TIME. Uuid: $UUID
 EOT
 
   echo "not has been created."
-
+else
+  echo "not already exists. Nothing has been done."
 fi
