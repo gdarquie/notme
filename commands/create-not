@@ -1,7 +1,11 @@
 #!/bin/bash
 
 # COMPOSE FILE NAME AND PATH
-NOT_PATH=/home/betagouv/not
+if [ "${NOT_PATH}" ]; then
+  NOT_PATH="${NOT_PATH}"
+else
+  NOT_PATH=`pwd`
+fi
 YEAR=$(date +%Y)
 MONTH=$(date +%m)
 TODAY_WEEK=$(date +%W)
