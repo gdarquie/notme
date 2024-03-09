@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# todo count number
+tree $NOT_PATH/
+
+# COUNT=0
+# echo "${COUNT} note(s) have been created."
+
+grep -E -i '(\d*)\sdirectories'
