@@ -49,7 +49,7 @@ if [[ ! -f "$COMPLETE_FILE_PATH" ]]; then
 
   cat <<EOT > $COMPLETE_FILE_PATH
 
-[//]: # (not:{uid: '$UUID', is_workday: $IS_WORKDAY, created_at: $(date)})
+[//]: # "not:{uid: '$UUID', is_workday: $IS_WORKDAY, created_at: $(date)}"
 
 # $TODAY
 
