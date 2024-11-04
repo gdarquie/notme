@@ -12,6 +12,17 @@ git@github.com:gdarquie/notme.git
 
 Add in bash an env var NOT_PATH with the pwd of your not project.
 Add another bash env var NOTME_PATH with the pwd of you notme project.
+Create an alias for notme.
+
+Replace by the correct path the value below.
+
+
+```
+export NOT_PATH=/not/path/not
+export NOTME_PATH=/notme/path/notme
+alias notme=/notme/path/notme/notme.sh
+```
+
 
 ## Create a note
 
