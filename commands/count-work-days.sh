@@ -13,13 +13,15 @@ check_week_path() {
 }
 
 check_working_day() {
-  # todo: check in the file if it is a working day or not
-  # add logic to check in comment if it is a working day
-  # first we need to parse the content of the day
-  # then I need to get the not in the beginning
-  # then I need to get the not object
-  # then I need to check if it is a work day
-  return 0
+  file_content=$(cat "$1")
+  not_comment=$(echo "$file_content" | grep -oP "(?<=not:)\{[^}]+\}")
+  is_workday=$(echo "$not_comment" | grep -oP "(?<=is_workday: )\w+")
+
+  if [ "$is_workday" = "true" ]; then
+    return 0
+  else
+    return 1
+  fi
 }
 
 increase_working_days_count() {
@@ -41,7 +43,7 @@ do
     for day in $week/*
     do
       # echo "day  ="$day
-      if check_working_day "$week"; then
+      if check_working_day "$day"; then
         increase_working_days_count
       fi
     done

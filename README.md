@@ -42,7 +42,7 @@ notme p
 
 ## Counting working days of the month
 
-In progress.
+You can count the days where you have worked.
 
 ```
 notme w
