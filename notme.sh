@@ -1,4 +1,6 @@
 #!/bin/bash
+. $NOTME_PATH/config
+
 COMMAND="$1"
 CREATE_NOT_COMMAND_PATH=$NOTME_PATH"/commands/create-not.command.sh"
 
@@ -15,7 +17,7 @@ elif [[ $COMMAND == 'count-work-days' || $COMMAND == 'w' ]]; then
   source $NOTME_PATH"/commands/count-work-days.command.sh"
 
 elif [[ $COMMAND == 'compute-work-salary' || $COMMAND == 'ws' ]]; then
-  echo 'Counting work days...'
+  echo 'Computing salary...'
   source $NOTME_PATH"/commands/compute-work-salary.command.sh"
 
 else
