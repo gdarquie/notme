@@ -20,7 +20,7 @@ COMPLETE_FOLDER_PATH=$NOT_PATH/$YEAR/$MONTH/$WEEK_NUMBER
 COMPLETE_FILE_PATH=$COMPLETE_FOLDER_PATH/$DAY_NUMBER.md
 IS_WORKDAY=true
 
-if [[ $COMMAND == 'create-not-perso' ]]; then
+if [[ $COMMAND == 'create-not-perso' || $COMMAND == "new-perso" || $COMMAND == "p"  ]]; then
   IS_WORKDAY=false
 fi
 
