@@ -35,20 +35,20 @@ CURRENT_MONTH=$(date +%m)
 # get the path of the current month folder
 CURRENT_MONTH_FOLDER_PATH=$NOT_PATH/$CURRENT_YEAR/$CURRENT_MONTH
 
+count_work_days() {
+  is_week_path=1
+  for week in $CURRENT_MONTH_FOLDER_PATH/*
+  do
+    if [[ $(check_week_path "$week") -eq 0 ]]; then
+      for day in $week/*
+      do
+        # echo "day  ="$day
+        if check_working_day "$day"; then
+          increase_working_days_count
+        fi
+      done
+    fi
+  done
 
-is_week_path=1
-for week in $CURRENT_MONTH_FOLDER_PATH/*
-do
-  if [[ $(check_week_path "$week") -eq 0 ]]; then
-    for day in $week/*
-    do
-      # echo "day  ="$day
-      if check_working_day "$day"; then
-        increase_working_days_count
-      fi
-    done
-  fi
-done
-
-# in each files, check if it is a work day or not and if yes add it to the result
-echo "Working day(s) this month: $working_days"
+  echo "$working_days"
+}
