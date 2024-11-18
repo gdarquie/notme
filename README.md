@@ -17,16 +17,15 @@ git@github.com:gdarquie/notme.git
 - Add in bash an env var NOT_PATH with the pwd of your not project (should already have been done when installing not)
 - Add another bash env var NOTME_PATH with the pwd of you notme project.
 - Create an alias for notme.
+- Copy the .env.dist into an .env file and correct the info if necessary
 
 Replace by the correct path the value below.
-
 
 ```
 export NOT_PATH=/not/path/not
 export NOTME_PATH=/notme/path/notme
 alias notme=/notme/path/notme/notme.sh
 ```
-
 
 ## Create a note
 
@@ -50,4 +49,10 @@ You can count the days where you have worked.
 
 ```
 notme w
+```
+
+## Computing salary
+
+```
+notme ws
 ```
